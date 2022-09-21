@@ -1,0 +1,8 @@
+
+Fcm Token
+Before deprecation
+
+val fcmToken = FirebaseInstanceId.getInstance().getToken()
+Replacement
+
+val fcmToken = FirebaseMessaging.getInstance().getToken()
