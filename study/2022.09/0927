@@ -1,0 +1,16 @@
+// FCM Bug 수정 중
+
+private fun saveFCMToken(token: String){
+        if(!UserLoginData.isLogin) return
+        networkManager.putFCMToken(TokenReqDto(token)).enqueue(object : Callback<StringContributors> {
+            override fun onResponse(call: Call<StringContributors>, response: Response<StringContributors>) {
+                if (response.isSuccessful) {
+                    Log.i("$TAG FCM", response.message())
+                }
+            }
+            override fun onFailure(call: Call<StringContributors>, t: Throwable) {
+                Log.e("$TAG FCM FAIL REASON", t.message.toString())
+            }
+        })
+
+    }
