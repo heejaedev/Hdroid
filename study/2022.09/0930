@@ -1,0 +1,69 @@
+1. 토스뱅크는 1년에 2%의 복리 이자를 준다고 한다. 그러면 사용자가 원하는 금액을 입력해서 1년동안 한번 받을 이자와 매일 하루치의 이자를 받는 것과의 차이는 얼마나 날까를 계산하는 프로그램을 작성하시오.
+
+
+
+#----toss bank start
+
+userMoney = input()
+
+#----year
+
+moneyYear = float(userMoney) * 1.02
+
+#----daily
+
+moneyDaily = float(userMoney) #일일 이자가 담길 곳
+
+dailyInterest = 0.02 / 365 #일일 이자
+
+#일일 이자 계산
+
+for i in range(365):
+
+  moneyDaily += moneyDaily*dailyInterest
+
+
+
+print(int(moneyYear)) #연간 이자 포함 금액 (소수점 제거)
+
+print(int(moneyDaily)) #일일 이자 포함 금액 (소수점 제거)
+
+
+
+
+
+
+
+
+
+2. Linked list를 구현하시요. 단, 리스트로 구현하고 리스트는 [값, 링크] 로 구성되어 있다. 
+
+#배열 생성 (value, link)
+
+list = [[1,1],[2,2],[3,3],[4,4],[5,0]]
+
+
+
+#address 초기화
+
+nextLink = 0
+
+
+
+while True:
+
+  #value값 출력
+
+  print(list[nextLink][0])
+
+  #next Address 확인
+
+  nextLink = list[nextLink][1]
+
+  #HEAD로 돌아오면 출력하고 break
+
+  if list[nextLink][1]==0:
+
+    print(list[nextLink][0])
+
+    break
